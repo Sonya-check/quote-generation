@@ -1,0 +1,42 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Генератор случайных цитат</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Генератор случайных цитат</h1>
+    </header>
+    <main>
+        <button id="generate-quote">Сгенерировать цитату</button>
+        <div id="quote-container">
+            <p id="quote"></p>
+            <p id="author"></p>
+        </div>
+        <form id="add-quote-form">
+            <input type="text" id="quote-input" placeholder="Введите цитату">
+            <input type="text" id="author-input" placeholder="Введите автора">
+            <button id="add-quote-button">Добавить цитату</button>
+        </form>
+        <div id="quotes-list">
+            <h2>Список цитат</h2>
+            <ul id="quotes-ul">
+                <!-- сюда будут добавляться цитаты -->
+            </ul>
+        </div>
+        <div id="sort-buttons">
+            <button id="sort-by-author">Сортировать по авторам</button>
+            <button id="sort-by-category">Сортировать по категориям</button>
+        </div>
+        
+
+        <button id="get-random-quote-api">Получить случайную цитату из API</button>
+        <button id="send-quote-to-email">Отправить цитату на email</button>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
