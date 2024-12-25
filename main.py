@@ -79,8 +79,8 @@ def send_quote_to_email():
         return jsonify({'error': 'Email, quote, and author are required'}), 400
 
     msg = MIMEText(f'"{quote}" - {author}')
-    my_gmail = 'artemsafin67@gmail.com'
-    my_secret_code = 'ysuf uoux xexa jwry'
+    my_gmail = 'my_email'
+    my_secret_code = 'my_secret_code'  # you can get it here - https://support.google.com/accounts/answer/185833?hl=ru
     msg['Subject'] = 'Цитата дня'
     msg['From'] = my_gmail
     msg['To'] = email
