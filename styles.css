@@ -35,16 +35,12 @@ button:hover {
 }
 
 input {
-    width: 35%;
     padding: 10px 20px;
 }
 
 #quote-container {
-    margin-bottom: 20px;
+    margin-bottom: 80px;
     padding: 20px;
-    /*border: 1px solid #ddd;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);*/
 }
 
 #quote {
@@ -72,7 +68,7 @@ input {
     width: 20%;
 }
 
-#quotes-list {
+#quotes-list, #mailing {
     width: 100%;
     margin-bottom: 20px;
     padding: 20px;
@@ -97,7 +93,7 @@ input {
     border-bottom: none;
 }
 
-#sort-buttons {
+#sort-buttons, #send-email {
     width: 100%;
     display: flex;
     margin-bottom: 100px;
@@ -106,4 +102,12 @@ input {
 #sort-by-author, #sort-by-category {
     margin-right: 50px;
 
+}
+
+#get-random-quote-api {
+
+}
+
+#send-quote-to-email {
+    margin-left: 10px;
 }
