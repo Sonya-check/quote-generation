@@ -1,11 +1,10 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Генератор случайных цитат</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="static/styles.css">
 </head>
 <body>
     <header>
@@ -13,15 +12,16 @@
     </header>
     <main>
         <button id="generate-quote">Сгенерировать цитату</button>
+        <p id="generate-error-message" style="color: red; display: none; margin-top: 10px;"></p> 
         <div id="quote-container">
             <p id="quote"></p>
             <p id="author"></p>
         </div>
 
         <button id="get-random-quote-api">Получить случайную цитату из API</button>
-        <div id="quote-container">
-            <p id="quote"></p>
-            <p id="author"></p>
+        <div id="quote-api-container">
+            <p id="api-quote"></p>
+            <p id="api-author"></p>
         </div>
 
         <form id="add-quote-form">
@@ -29,27 +29,31 @@
             <input type="text" id="author-input" placeholder="Введите автора">
             <input type="text" id="category-input" placeholder="Введите категорию">
             <button id="add-quote-button">Добавить цитату</button>
+            <p id="error-message" style="color: red; display: none; margin-top: 10px;"></p>
         </form>
+
         <div id="quotes-list">
             <h2>Список цитат</h2>
             <ul id="quotes-ul">
                 <!-- сюда будут добавляться цитаты -->
             </ul>
         </div>
-        
+
         <div id="sort-buttons">
             <button id="sort-by-author">Сортировать по авторам</button>
             <button id="sort-by-category">Сортировать по категориям</button>
         </div>
-        
+
         <div id="mailing">
             <h3>Подпишись на рассылку ежедневной цитаты дня!</h3>
             <div id="input-send-email">
                 <input type="text" id="email-input" placeholder="Введите email">
-                <button id="send-quote-to-email">Отправить цитату на email</button> 
+                <button id="send-quote-to-email">Отправить цитату на email</button>
             </div>
+            <p id="email-error-message" style="display: none; margin-top: 10px;"></p>
         </div>
+        
     </main>
-    <script src="script.js"></script>
+    <script src="static/script.js"></script>
 </body>
 </html>
