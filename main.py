@@ -1,7 +1,7 @@
-from flask import Flask, request, jsonify, render_template
-import sqlite3
-import requests
-import smtplib
+from flask import Flask, request, jsonify, render_template 
+import sqlite3 
+import requests 
+import smtplib 
 from email.mime.text import MIMEText
 
 app = Flask(__name__)
@@ -10,8 +10,8 @@ DATABASE = 'quotes.db'
 
 
 def init_db():
-    conn = sqlite3.connect(DATABASE)
-    cursor = conn.cursor()
+    conn = sqlite3.connect(DATABASE) 
+    cursor = conn.cursor() 
     cursor.execute('''
         CREATE TABLE IF NOT EXISTS quotes (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -24,14 +24,14 @@ def init_db():
     conn.close()
 
 
-@app.route('/')
+@app.route('/') 
 def index():
     return render_template('index.html')
 
 
-@app.route('/add_quote', methods=['POST'])
+@app.route('/add_quote', methods=['POST']) 
 def add_quote():
-    data = request.json
+    data = request.json 
     quote = data.get('quote')
     author = data.get('author')
     category = data.get('category')
@@ -45,7 +45,7 @@ def add_quote():
     conn.commit()
     conn.close()
 
-    return jsonify({'success': True}), 201
+    return jsonify({'success': True}), 200
 
 
 @app.route('/get_quotes', methods=['GET'])
@@ -53,7 +53,7 @@ def get_quotes():
     conn = sqlite3.connect(DATABASE)
     cursor = conn.cursor()
     cursor.execute('SELECT quote, author, category FROM quotes')
-    quotes = cursor.fetchall()
+    quotes = cursor.fetchall() 
     conn.close()
 
     return jsonify(quotes)
@@ -79,14 +79,14 @@ def send_quote_to_email():
         return jsonify({'error': 'Email, quote, and author are required'}), 400
 
     msg = MIMEText(f'"{quote}" - {author}')
-    my_gmail = 'my_email'
-    my_secret_code = 'my_secret_code'  # you can get it here - https://support.google.com/accounts/answer/185833?hl=ru
+    my_gmail = 'olya.chekalina2004@gmail.com'
+    my_secret_code = 'your pass'  # сгенерить пароль https://support.google.com/accounts/answer/185833?hl=ru
     msg['Subject'] = 'Цитата дня'
     msg['From'] = my_gmail
     msg['To'] = email
 
     try:
-        with smtplib.SMTP('smtp.gmail.com', 587) as server:
+        with smtplib.SMTP('smtp.gmail.com', 587) as server: 
             server.starttls()
             server.login(my_gmail, my_secret_code)
             server.sendmail(my_gmail, email, msg.as_string())
